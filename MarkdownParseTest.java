@@ -38,17 +38,17 @@ public class MarkdownParseTest {
         Path fileName = Path.of("test-file2.md");
         String contents = Files.readString(fileName); 
         ArrayList<String> res = new ArrayList<String>();
-        res.add("differentlink.com");
+        res.add("https://something.com");
+        res.add("some-page.html");
         assertEquals(res , MarkdownParse.getLinks(contents)); 
     }
 
     @Test 
     public void testGetLinksTestFileThree() throws IOException{
-        Path fileName = Path.of("testfile3.md");
+        Path fileName = Path.of("test-file3.md");
         String contents = Files.readString(fileName); 
         ArrayList<String> res = new ArrayList<String>();
-        res.add("https://www.google.com/");
-        res.add("https://www.google.com/");
+        res.add("No links in this file");
         assertEquals(res , MarkdownParse.getLinks(contents)); 
     }
 
